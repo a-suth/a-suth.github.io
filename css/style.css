@@ -1,0 +1,29 @@
+body {
+  background: #03A9F4;
+  font-family: 'Roboto', sans-serif;
+  color: #FFFFFF;  
+}	  
+
+#container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: inline;
+}
+
+
+.text-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: left; /* this one line vertically centers all child elements */
+  height: 100px;
+  -webkit-flex-direction: column;
+   flex-direction: column;
+   vertical-align: middle;
+   margin-top: 32px;
+   margin-left: 5px;
+   white-space: nowrap;
+
+}

@@ -1,0 +1,54 @@
+
+
+
+if (window.location.pathname == "/messaging") {
+    
+	
+	window.setTimeout(function() {
+		var objDiv = document.getElementById("chat-messagebox");
+		objDiv.scrollTop = 10000000;
+
+	    var input = document.getElementById('message');
+
+	    input.focus();
+	    input.select();
+
+	    document.getElementById("userButton").value = "Choose a file..."
+
+	    $("#userFileButton").change(function () {
+	      document.getElementById("userButton").value = "Ready to Send!"
+	    }); 
+
+
+	}, 200);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    window.setInterval(function(){
+      $.get( "/new_message_query", function( data ) {
+      $( ".result" ).html( data );
+      console.log(data);
+      if (data == "0") {
+        location.reload();
+        console.log("reload");
+      }
+    });
+    }, 3000);
+}
+
+
+
+
+
