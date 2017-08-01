@@ -11,12 +11,12 @@ body {
   
 }
 .content {
-  
+  padding-left : 10px;
+  padding-right : 10px;
   height : 100%;
   font-size: 16pt;
   padding-bottom: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
+ 
     display: flex;
 
   -webkit-flex-direction: column;
@@ -38,15 +38,15 @@ body {
 }
 
 .title-text {
-  font-size: 7vw;
+  font-size: 9vw;
   margin : 0;
   margin-top : 5%;
   font-weight: 300;
 }
 
 .sub-text {
-  font-size: 5vw;
-  margin : 0;
+  font-size: 6vw;
+  margin : ;
   font-weight: 300;
 }
 
@@ -63,6 +63,7 @@ body {
 
 
 .status-box {
+  margin-top : 40%;
   color: #043e5b;
   display: flex;
   justify-content: flex-start;
@@ -112,7 +113,7 @@ body {
 
 .time-title {
   margin : 10;
-  font-size: 4.5vw;
+  font-size: 3.5vw;
   font-weight: 300;
   color : #FFF;
 }
