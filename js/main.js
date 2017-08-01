@@ -3,6 +3,8 @@ $(document).ready(function() {
 
 })
 
+var times = {};
+
 
 function formatAMPM(date) {
   var hours = date.getHours();
@@ -15,10 +17,18 @@ function formatAMPM(date) {
   return strTime;
 }
 
+function moveBars() {
+	$("#box1 .chancebox .grow-box").animate({height: ($("#box1 .chancebox").width() * times[0][1])/100},2000);
+	$("#box2 .chancebox .grow-box").animate({height: ($("#box2 .chancebox").width() * times[1][1])/100},2000);
+	$("#box3 .chancebox .grow-box").animate({height: ($("#box3 .chancebox").width() * times[2][1])/100},2000);
+	$("#box4 .chancebox .grow-box").animate({height: ($("#box4 .chancebox").width() * times[3][1])/100},2000);
+}
+
+
 function weatherReport() {
 	
-	var lati = 56.817,
-		longi = -5.112;
+	var lati = -36.8641,
+		longi = 174.7621;
 
 	/*getLocation(function(pos){
 		longi = pos.longi;
@@ -29,7 +39,7 @@ function weatherReport() {
 		url          = 'https://api.darksky.net/forecast/',
 		api_call     = url + apiKey + "/" + lati + "," + longi + "?extend=hourly&callback=?";
 
-	var times = {};
+	
 
 	for (var i = 0; i < 4; i++) {
 		times[i] = {};
@@ -69,12 +79,19 @@ function weatherReport() {
 		$("#box3 .time-title").html(times[2][0]);
 		$("#box4 .time-title").html(times[3][0]);
 
+		moveBars()
 
     });
 
 }
 
+var globalResizeTimer = null;
 
-
+$(window).resize(function() {
+    if(globalResizeTimer != null) window.clearTimeout(globalResizeTimer);
+    globalResizeTimer = window.setTimeout(function() {
+        moveBars();
+    }, 200);
+});
 
 
