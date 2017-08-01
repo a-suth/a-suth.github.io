@@ -1,27 +1,27 @@
 body {
-  background: #03A9F4;
+  background-image: url("http://imgur.com/8chkbIF.jpg");
+  background-size: cover;
   font-family: 'Roboto', sans-serif;
   color: #FFFFFF;  
 }   
 
 #container{
-   width: 100%; 
-   margin: 0 auto;
-   height: margin: 0 auto;
    text-align: center !important;
-   top: 100%;
 
+  
 }
 .content {
+  
+  height : 100%;
   font-size: 16pt;
   padding-bottom: 30px;
   padding-left: 10px;
   padding-right: 10px;
     display: flex;
-justify-content: center;
+
   -webkit-flex-direction: column;
    flex-direction: column;
-
+  C;
 }
 
 
@@ -34,9 +34,36 @@ justify-content: center;
    vertical-align: middle;
    margin-bottom : 10%;
 
+
 }
 
+.title-text {
+  font-size: 7vw;
+  margin : 0;
+  margin-top : 5%;
+  font-weight: 300;
+}
+
+.sub-text {
+  font-size: 5vw;
+  margin : 0;
+  font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .status-box {
+  color: #043e5b;
   display: flex;
   justify-content: flex-start;
    align-items: center;
@@ -48,26 +75,27 @@ justify-content: center;
 
 
 .box {
-  margin : 2%;
-  width: 20%;
+  margin : 1.5%;
+  width: 22%;
   position: relative;
   
 }
 
 .chancebox {
-  background: #000;
+  background: #FFF;
   width: 100%;
   padding-bottom: 100%;
 
- 
+ box-shadow: 0px 0px 5px 0px #6C6C6C;
 
 }
 
 
-.growbox {
+.grow-box {
   color : #A2A;
-  width: 50px;
-  height : 50%;
+  width: 100%;
+  height
+
   
 }
 
@@ -75,12 +103,16 @@ justify-content: center;
 .percent {
   font-size: 7vw;
   margin : 0;
-  margin-left: 15%;
-  margin-top: 11.5%;
+  margin-left: 19%;
+  margin-top: 16%;
   position : absolute;
   top : 10%;
+  font-weight: 300;
 }
 
 .time-title {
   margin : 10;
+  font-size: 4.5vw;
+  font-weight: 300;
+  color : #FFF;
 }
