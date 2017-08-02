@@ -1,6 +1,70 @@
+
+var canvas, ctx,w,h ,init, maxParts, particles;
+
+function setSize () {
+	canvas.width = window.innerWidth;
+  	canvas.height = window.innerHeight;
+
+  	ctx = canvas.getContext('2d');
+    w = canvas.width;
+    h = canvas.height;
+    ctx.strokeStyle = 'rgba(174,194,224,0.5)';
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    
+    
+    init = [];
+    maxParts = 1000;
+    for(var a = 0; a < maxParts; a++) {
+      init.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        l: Math.random() * 1,
+        xs: -4 + Math.random() * 4 + 2,
+        ys: Math.random() * 10 + 10
+      })
+    }
+    
+    particles = [];
+    for(var b = 0; b < maxParts; b++) {
+      particles[b] = init[b];
+    }
+}
+
 $(document).ready(function() {
 	weatherReport();
-
+	canvas = $('#canvas')[0];
+  if(canvas.getContext) {
+  	
+  	setSize();
+    
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for(var c = 0; c < particles.length; c++) {
+        var p = particles[c];
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x + p.l * p.xs, p.y + p.l * p.ys);
+        ctx.stroke();
+      }
+      move();
+    }
+    
+    function move() {
+      for(var b = 0; b < particles.length; b++) {
+        var p = particles[b];
+        p.x += p.xs;
+        p.y += p.ys;
+        if(p.x > w || p.y > h) {
+          p.x = Math.random() * w;
+          p.y = -20;
+        }
+      }
+    }
+    
+    setInterval(draw, 30);
+    
+  }
 })
 
 var times = {};
@@ -30,16 +94,9 @@ function weatherReport() {
 	var lati = -36.8641,
 		longi = 174.7621;
 
-	/*getLocation(function(pos){
-		longi = pos.longi;
-		lati = pos.latiquestion;
-	});*/
-
 	var apiKey       = '7ab2f4ad5bab6d3cffc9d04db6ed14b0',  // Please don't steal...
 		url          = 'https://api.darksky.net/forecast/',
 		api_call     = url + apiKey + "/" + lati + "," + longi + "?extend=hourly&callback=?";
-
-	
 
 	for (var i = 0; i < 4; i++) {
 		times[i] = {};
@@ -88,6 +145,7 @@ function weatherReport() {
 var globalResizeTimer = null;
 
 $(window).resize(function() {
+	setSize();
     if(globalResizeTimer != null) window.clearTimeout(globalResizeTimer);
     globalResizeTimer = window.setTimeout(function() {
         moveBars();

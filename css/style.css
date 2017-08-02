@@ -8,7 +8,7 @@ body {
 #container{
    width: 100%; 
    text-align: center !important;
-   margin-top: 100px;/* half of #content height*/
+   margin-top: 50px;/* half of #content height*/
    margin-bottom: 100px;/* half of #content height*/
 }
 .content {
@@ -137,4 +137,26 @@ body {
 a {
   text-decoration: none; /* no underline */
   color : inherit;
+}
+
+#canvas{
+  position: absolute;
+  left : 0;
+  top: 0;
+  z-index : -3000;
+}
+
+html {
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+}
+
+.logo {
+  height : 30px;
+  width : auto;
+  background-position: center; 
+  margin : 0;
+  background-image: url("../img/logo.png");
+  background-size: contain; 
+  background-repeat: no-repeat;
+  back
 }
