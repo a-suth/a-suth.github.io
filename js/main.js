@@ -3,7 +3,7 @@ var canvas, ctx,w,h ,init, maxParts, particles;
 
 function setSize () {
 	canvas.width = window.innerWidth;
-  	canvas.height = window.innerHeight;
+  canvas.height = $(document).height();
 
   	ctx = canvas.getContext('2d');
     w = canvas.width;
@@ -116,7 +116,7 @@ function weatherReport() {
 
     	for(var j = 0; j < 4; j++) {
     		var time = formatAMPM(new Date(forecast.hourly.data[j * 2].time * 1000)),
-    			chance = forecast.hourly.data[j].precipProbability * 100;
+    			chance = forecast.hourly.data[j * 2].precipProbability * 100;
 
     		times[j][0] = time;
     		times[j][1] = chance;
@@ -126,10 +126,10 @@ function weatherReport() {
 
     	$("#sub-text").html(forecast.hourly.summary);
 
-		$("#box1 .percent").html("" + times[0][1] + "%");
-		$("#box2 .percent").html("" + times[1][1] + "%");
-		$("#box3 .percent").html("" + times[2][1] + "%");
-		$("#box4 .percent").html("" + times[3][1] + "%");
+		$("#box1 .percent").html("" + Math.round(times[0][1]) + "%");
+		$("#box2 .percent").html("" + Math.round(times[1][1])+ "%");
+		$("#box3 .percent").html("" + Math.round(times[2][1]) + "%");
+		$("#box4 .percent").html("" + Math.round(times[3][1]) + "%");
 
 		$("#box1 .time-title").html(times[0][0]);
 		$("#box2 .time-title").html(times[1][0]);
