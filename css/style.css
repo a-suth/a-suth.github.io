@@ -160,3 +160,9 @@ html {
   background-repeat: no-repeat;
   back
 }
+
+.sbox-title {
+  font-size: 2vh;
+  font-weight: 300;
+  margin : 8;
+}
