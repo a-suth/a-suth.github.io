@@ -91,8 +91,8 @@ function moveBars() {
 
 function weatherReport() {
 	
-	var lati = -36.8641,
-		longi = 174.7621;
+	var lati = 11.6157,
+		longi = -72.4741;
 
 	var apiKey       = '7ab2f4ad5bab6d3cffc9d04db6ed14b0',  // Please don't steal...
 		url          = 'https://api.darksky.net/forecast/',
